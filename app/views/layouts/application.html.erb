@@ -9,13 +9,17 @@
 <body>
 
   <% if signed_in? %>
-    <%= current_user.username %>
+    <%= link_to current_user.username, current_user %>
     <%= link_to 'Sign out', session_path, method: :delete %>
   <% else %>
     <%= link_to 'Sign in', new_session_path %>
     <%= link_to 'Sign up', new_user_path %>
   <% end %>
 
+  <% if alert %>
+    <%= alert %>
+  <% end %>
+  
 <%= yield %>
 
 </body>
